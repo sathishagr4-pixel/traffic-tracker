@@ -22,7 +22,7 @@ Built with **Python, YOLOv8 (Ultralytics), ByteTrack and OpenCV**.
 ## Installation
 
 ```bash
-git clone https://github.com/<your-username>/traffic-tracker.git
+git clone https://github.com/sathishagr4-pixel/traffic-tracker.git
 cd traffic-tracker
 pip install -r requirements.txt
 ```
