@@ -5,6 +5,7 @@ Features
   - Live webcam / CCTV (RTSP/HTTP) / video file input
   - YOLO detection + ByteTrack: every person/vehicle gets a unique anonymous ID
   - Unique counts: people, cars, motorcycles, buses, trucks
+  - Counts an object only after it is tracked for N frames (--min-frames)
   - Crossing-line counter with IN / OUT direction, per class
   - Smoothed FPS display
   - Optional annotated video output + CSV event log
