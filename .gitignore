@@ -1,0 +1,7 @@
+*.pt
+*.mp4
+*.avi
+crossings.csv
+tracker_tuned.yaml
+__pycache__/
+runs/
