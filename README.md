@@ -6,7 +6,7 @@ Built with **Python, YOLOv8 (Ultralytics), ByteTrack and OpenCV**.
 
 > Privacy by design: objects get anonymous numeric IDs only. No faces, names or personal data are captured or stored.
 
-<!-- Add a demo GIF or screenshot here: ![demo](demo.gif) -->
+![demo](demo.png)
 
 ## Features
 
