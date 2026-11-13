@@ -81,11 +81,22 @@ def segments_intersect(a, b, c, d):
 
 
 def open_source(src):
-    cap = cv2.VideoCapture(int(src) if src.isdigit() else src)
-    if src.startswith(("rtsp://", "http://", "https://")):
-        cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # keep latency low on CCTV
+    if src.isdigit():
+        # On Windows, DirectShow is more reliable for webcams than the default (MSMF)
+        cap = cv2.VideoCapture(int(src), cv2.CAP_DSHOW)
+        if not cap.isOpened():
+            cap = cv2.VideoCapture(int(src))
+    else:
+        cap = cv2.VideoCapture(src)
+        if src.startswith(("rtsp://", "http://", "https://")):
+            cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # keep latency low on CCTV
     if not cap.isOpened():
         raise SystemExit(f"Cannot open source: {src}")
+    for _ in range(10):  # give the camera a moment to warm up
+        ok, _frame = cap.read()
+        if ok:
+            break
+        time.sleep(0.1)
     return cap
 
 
